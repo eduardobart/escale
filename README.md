@@ -1,9 +1,9 @@
 # escale
-*Desafio Escale*
+**Desafio Escale**
 
 O código Python foi criado em ambiente AWS EMR. 
 
-Na primeira etapa do desafio os jsons.gz são lidos em loop para trazermos o primeiro dicionário que traz para cada arquivo a sessões únicas (anonymous_id).
+Na **primeira etapa** do desafio os jsons.gz são lidos em loop para trazermos o primeiro dicionário que traz para cada arquivo a sessões únicas (anonymous_id).
 
 {'part-00000.json.gz': 10234800,
  'part-00001.json.gz': 10230747,
@@ -16,7 +16,7 @@ Na primeira etapa do desafio os jsons.gz são lidos em loop para trazermos o pri
  'part-00008.json.gz': 10228130,
  'part-00009.json.gz': 10229023}
  
- A segunda etapa, lemos todos os 10 arquivos com o Spark e trouxemos as sessões únicas por browser_family, os_family e device_family. 
+ A **segunda etapa**, lemos todos os 10 arquivos com o Spark e trouxemos as sessões únicas por browser_family, os_family e device_family. 
  
  'browser_family': {'Edge Mobile': 3274,
   'Other': 2489787,
@@ -34,7 +34,7 @@ Na primeira etapa do desafio os jsons.gz são lidos em loop para trazermos o pri
   'Investment Crawler': 3,
   ....
   
- A última etapa, mais desafiadora é trazer pelas mesmas famílias acima a duração em segundos. "Podemos assumir que sessões com um único evento tem duração de 0 segundos."
+ A **última etapa**, mais desafiadora é trazer pelas mesmas famílias acima a duração em segundos. "Podemos assumir que sessões com um único evento tem duração de 0 segundos."
   
  Primeiro pegamos por família e sessão o timestamp final e o inicial, e fazemos uma subtração para termos a duração. Depois com esse agrupamento, calculamos apenas por família a mediana, (percentil 50).
  
