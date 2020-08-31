@@ -3,6 +3,8 @@
 
 O código Python foi criado em ambiente AWS EMR. 
 
+![Hardware AWS `hardware`](img/hardware.png)
+
 Na **primeira etapa** do desafio os jsons.gz são lidos em loop para trazermos o primeiro dicionário que traz para cada arquivo a sessões únicas (anonymous_id).
 
 {'part-00000.json.gz': 10234800,
@@ -37,6 +39,8 @@ Na **primeira etapa** do desafio os jsons.gz são lidos em loop para trazermos o
  A **última etapa**, mais desafiadora é trazer pelas mesmas famílias acima a duração em segundos. "Podemos assumir que sessões com um único evento tem duração de 0 segundos."
   
  Primeiro pegamos por família e sessão o timestamp final e o inicial, e fazemos uma subtração para termos a duração. Depois com esse agrupamento, calculamos apenas por família a mediana, (percentil 50).
+ 
+ A leitura teve que ser particionada em parquet para a subquery acontecer. 
  
  Aparentemente não há dois casos de mesma sessão e por isso a subtração tem dado zero. Logo usamos a premissa "Podemos assumir que sessões com um único evento tem duração de 0 segundos".
  
